@@ -4,7 +4,7 @@ import '../App.css'
 export const Navbar = () => {
   return (
     <div className={'title'}>
-      <h1 className={'title-text'}>C<span id={'space'}><img id={'img'} src={logo} width={'100px'}></img></span>VID-19</h1>
+      <h1 className={'title-text'}>C<span id={'space'}><img id={'img'} alt='image' src={logo} width={'100px'}></img></span>VID-19</h1>
       
     </div>
   )
