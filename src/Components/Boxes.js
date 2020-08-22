@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import CountUp from 'react-countup';
+import '../App.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,34 +22,52 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Boxes() {
-  const classes = useStyles();
+  
  let [globaldata, setglobaldata] = useState({});
+ 
+ 
   useEffect(() => {
     async function getdata(){
-      const response = await fetch('https://api.thevirustracker.com/free-api?global=stats');
+      const response = await fetch('https://covid19.mathdro.id/api');
       let data = await response.json();
-      delete data.results[0].source;
-      setglobaldata(data.results[0])
-      console.log(data.results[0]);
+      let values = {
+        confirmed: data.confirmed.value,recovered: data.recovered.value,deaths: data.deaths.value
+      }
+      setglobaldata(values);
   }
   getdata();
   },[])
-
+  
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
         
-          {Object.keys(globaldata).map((key, ind) => {
-            return(<Grid item xs={12} sm={4} key={ind}>
-            <Paper className={classes.paper} elevation={3}>
-              <h3 className={classes.title}>{key.replace(/_/g,' ').toUpperCase()}</h3>
-              <h3>{globaldata[key]}</h3>
+          
+            <Grid item xs={12} sm={4}>
+            <Paper className={classes.paper} id={'box1'} elevation={3}>
+             <h2>TOTAL INFECTED</h2>
+             <h2>{globaldata.confirmed}</h2>
+            
             </Paper>
-            </Grid>)
-          })}
-        
-        
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+            <Paper className={classes.paper} id={'box2'} elevation={3}>
+             <h2>TOTAL RECOVERED</h2>
+             <h2>{globaldata.recovered}</h2>
+            </Paper>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+            <Paper className={classes.paper} id={'box3'} elevation={3}>
+             <h2>TOTAL DEATHS</h2>
+             <h2>{globaldata.deaths}</h2>
+            </Paper>
+            </Grid>
+            
+          
       </Grid>
-    </div>
+   </div>
   );
 }
