@@ -1,4 +1,53 @@
-body{
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.heading {
+  font-size: 40px;
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 60px;
+  color: #636666;
+}
+.home {
+  max-width: 100%;
+  min-height: 100vh;
+  color: blanchedalmond;
+}
+.overlay {
+  position: relative;
+  background-color: #071155;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  height: 450px;
+  opacity: 0.6;
+}
+.content {
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  padding: 40px;
+  top: 20%;
+}
+.content h1 {
+  font-size: 100px;
+}
+.navbar {
+  padding: 10px;
+}
+.child {
+  text-align: left;
+  font-weight: 100;
+  color: aqua;
+}
+.about-heading {
+  font-size: 50px;
+}
+
+
+/* body{
     background-color: #f1e9e9;
 }
 .title-text{
@@ -33,4 +82,4 @@ body{
     width: 60%;
     border: 2px solid black;
     
-}
+} */

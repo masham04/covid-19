@@ -1,16 +1,24 @@
 import React from 'react';
 import './App.css';
-import {Navbar} from './Components/Navbar';
-import Boxes from './Components/Boxes';
-import Chart from './Components/Chart';
-import {Countrydata} from './Components/Countrydata';
+import {Header} from './Components/Header'
+import {About} from './Components/About'
+import { Symptoms } from './Components/Symptoms';
+import {Prevent} from './Components/Prevent'
+// import {Navbar} from './Components/Navbar';
+// import Boxes from './Components/Boxes';
+// import Chart from './Components/Chart';
+// import {Countrydata} from './Components/Countrydata';
 function App() {
   return (
     <div>
-      <Navbar />
+    <Header/>
+    <About />
+    <Symptoms/>
+    <Prevent/>
+      {/* <Navbar />
       <Boxes />
       <Chart />
-      <Countrydata />
+      <Countrydata /> */}
     </div>
   );
 }
