@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
+      maxWidth: "100%",
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -39,64 +40,69 @@ export function Nav() {
           <Typography variant="h6" className={classes.title}>
             COVID-19 TRACKER
           </Typography>
-          <Link
-            activeClass="active"
-            to="home"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={1000}
-          >
-            <Button className="navitem" color="inherit">
-              Home
-            </Button>
-          </Link>
-          <Link
-            activeClass="active"
-            to="about"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={1000}
-          >
-            <Button className="navitem" color="inherit">About</Button>
-          </Link>
-          <Link
-            activeClass="active"
-            to="symptoms"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={1000}
-          >
-            <Button className="navitem" color="inherit">
-              symbols
-            </Button>
-          </Link>
-          <Link
-            activeClass="active"
-            to="prevent"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={1000}
-          >
-            <Button className="navitem" color="inherit">
-              prevention
-            </Button>
-          </Link>
-          <Link
-            activeClass="active"
-            to="cases"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={1000}
-          >
-            <Button className="navitem" color="inherit">
-              CASES
-            </Button>
-          </Link>
+          <div>
+            <Link
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+            >
+              <Button className="navitem" color="inherit">
+                Home
+              </Button>
+            </Link>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+            >
+              <Button className="navitem" color="inherit">
+                About
+              </Button>
+            </Link>
+            <Link
+              activeClass="active"
+              to="symptoms"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+            >
+              <Button className="navitem" color="inherit">
+                symbols
+              </Button>
+            </Link>
+            <Link
+              activeClass="active"
+              to="prevent"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+            >
+              <Button className="navitem" color="inherit">
+                prevention
+              </Button>
+            </Link>
+            <Link
+              activeClass="active"
+              to="cases"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={1000}
+            >
+              <Button className="navitem" color="inherit">
+                CASES
+              </Button>
+            </Link>
+            
+          </div>
         </Toolbar>
       </AppBar>
     </div>
