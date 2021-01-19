@@ -8,8 +8,8 @@ import {Cards} from './Components/cards/Cards'
 import {Countrypicker} from './Components/Countrypicker'
 import {Chart} from './Components/Chart'
 import { fetchData } from './api/';
-import {Maps} from './Components/Maps'
 import { Footer } from './Components/Footer';
+
 function App() {
   const [Data, setData] = useState({});
   const [Country, setCountry] = useState('');
@@ -38,7 +38,6 @@ function App() {
     <Cards data={Data} />
     <Countrypicker handleCountryChange={handleCountryChange} />
     <Chart data={Data} country={Country} /> 
-     <Maps />
      <Footer/>
     </div>
   );
