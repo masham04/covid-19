@@ -17,10 +17,10 @@ export function About() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div id="about" className={classes.root}>
         <Container maxWidth="xl">
         
-      <h1 id="about" className="heading">ABOUT CORONA</h1>
+      <h1 className="heading">ABOUT CORONA</h1>
       <Grid container spacing={4}>
         <Grid className="child" item md={6} sm={12}>
             

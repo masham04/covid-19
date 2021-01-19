@@ -9,7 +9,6 @@ import {Countrypicker} from './Components/Countrypicker'
 import {Chart} from './Components/Chart'
 import { fetchData } from './api/';
 import { Footer } from './Components/Footer';
-
 function App() {
   const [Data, setData] = useState({});
   const [Country, setCountry] = useState('');

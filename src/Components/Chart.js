@@ -83,6 +83,7 @@ export const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
         src="https://public.domo.com/cards/bWxVg"
         width="100%"
         height="600"
+        frameBorder="0"
       ></iframe>
       <br />
       <br />

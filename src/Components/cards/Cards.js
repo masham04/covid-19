@@ -26,9 +26,9 @@ export const Cards = ({ data: { confirmed, recovered, deaths } }) => {
   }
   
   return (
-    <div className={classes.root}>
+    <div id="cases" className={classes.root}>
       <Container className="cases" maxWidth="xl">
-        <h1 id="cases" className="heading">
+        <h1  className="heading">
           CORONA CASES
         </h1>
         <Grid container spacing={5}>

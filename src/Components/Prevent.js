@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
 export const Prevent = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <div id="prevent" className={classes.root}>
         <Container className='symbols' maxWidth="xl">
-        <h1 id="prevent" className="heading">HOW TO PREVENT CORONA</h1>
+        <h1  className="heading">HOW TO PREVENT CORONA</h1>
       <Grid container spacing={3}>
         <Grid item md={4} sm={12} xs={12}>
           <Paper className={classes.paper}>
