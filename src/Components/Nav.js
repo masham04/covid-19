@@ -28,7 +28,7 @@ export function Nav() {
 
   return (
     <div className={classes.root}>
-      <AppBar className='navbar' style={{backgroundColor: 'black', opacity: 0.6}} position="fixed">
+      <AppBar  className='navbar' style={{backgroundColor: 'black', opacity: 0.6}} position="fixed">
         <Toolbar>
           <img src={logo} alt='logo' width='50px' height='50px'/>
           &nbsp;&nbsp;&nbsp;
@@ -39,7 +39,7 @@ export function Nav() {
           <Button href="#about" color="inherit">About</Button>
           <Button href="#symptoms" color="inherit">symbols</Button>
           <Button href="#prevent" color="inherit">prevention</Button>
-          <Button color="inherit">CASES</Button>
+          <Button href="#cases" color="inherit">CASES</Button>
           
         </Toolbar>
       </AppBar>

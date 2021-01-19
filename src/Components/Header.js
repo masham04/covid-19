@@ -6,11 +6,11 @@ import background from "../images/virus.jpg";
 
 export const Header = () => {
   return (
-    <div className="home" style={{ backgroundImage: `url(${background})` }}>
+    <div id="home" className="home" style={{ backgroundImage: `url(${background})` }}>
         <Nav />
       <div className="overlay"></div>
        
-      <div id="home" className="content">
+      <div className="content">
         
         <h3>ONE ENEMY , WHOLE WORLD FIGHTING WITH</h3>
         <h1>COVID-19</h1>

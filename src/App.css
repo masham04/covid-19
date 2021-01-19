@@ -45,41 +45,17 @@
 .about-heading {
   font-size: 50px;
 }
-
-
-/* body{
-    background-color: #f1e9e9;
+.container-chart{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.title-text{
-    margin-top: 0px;
-    text-align: center;
-    font-size: 60px;
-    color: indianred;
+.footer-container{
+  width: 100%;
+  border: 1px solid black;
+  background-color: black;
+  opacity: 0.6;
+  color: #ffff;
+  padding: 10px;
+  text-align: center;
 }
-#space{
-   margin: 45px;
-}
-#img{
-   
-   margin-top: 10px;
-}
-
-#box1{
-    background-color: goldenrod;
-}
-#box2{
-    background-color: green;
-}
-#box3{
-    background-color: rgb(179, 51, 51);
-}
-#box1,#box2,#box3{
-    color: honeydew;
-    margin-bottom: 100px;
-}
-.sizetable{
-    margin-top: 50px;
-    width: 60%;
-    border: 2px solid black;
-    
-} */

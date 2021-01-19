@@ -1,6 +1,6 @@
 import React from "react";
 import logo from '../images/virus3.jpg'
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from '@material-ui/core/Container';
 
@@ -33,7 +33,7 @@ export function About() {
           </p>
         </Grid>
         <Grid className="child" item  md={6} sm={12}>
-           <img src={logo} width='100%' height='300px' />
+           <img src={logo} alt="logo" width='100%' height='300px' />
         </Grid>
       </Grid>
       </Container>

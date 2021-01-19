@@ -1,48 +1,79 @@
-import React,{useState, useEffect} from 'react';
-import {Bar} from 'react-chartjs-2';
+import React, { useState, useEffect } from 'react';
+import { Line, Bar } from 'react-chartjs-2';
 
- 
+import { fetchDailyData } from '../api';
 
-function Chart(){
 
-  const [globaldata, setglobaldata] = useState({});
+
+export const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
+  const [dailyData, setDailyData] = useState({});
+
   useEffect(() => {
-      async function api() {
-          let response = await fetch('https://api.thevirustracker.com/free-api?global=stats');
-          let data = await response.json();
-            
-        setglobaldata(data.results[0])
-      }
-      api();
-  }, [])
+    const fetchMyAPI = async () => {
+      const initialDailyData = await fetchDailyData();
 
-    return (
-      <center>
-      <div className="size">
-        <h2>Covid-19 Data Graph</h2>
-        <Bar
-          data={{
-            labels: ['Total Cases', 'Total Recovered','Total Deaths'],
-            datasets: [
-              {
-                label: 'Covid-19 stats',
-                backgroundColor: 'rgba(255,99,132,0.2)',
-                borderColor: 'rgba(255,99,132,1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-                hoverBorderColor: 'rgba(255,99,132,1)',
-                data: [globaldata.total_cases, globaldata.total_recovered, globaldata.total_deaths]
-              }
-            ]
-          }}
-          width={100}
-          height={100}
-          options={{
-            maintainAspectRatio: false
-          }}
-        />
-      </div>
-      </center>
-    );
-  }
-  export default Chart;
+      setDailyData(initialDailyData);
+    };
+
+    fetchMyAPI();
+  }, []);
+
+  const barChart = (
+    confirmed ? (
+      <Bar
+        data={{
+          labels: ['Infected', 'Recovered', 'Deaths'],
+          datasets: [
+            {
+              label: 'People',
+              backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
+              data: [confirmed.value, recovered.value, deaths.value],
+            },
+          ],
+        }}
+        options={{
+          legend: { display: false },
+          title: { display: true, text: `Current state in ${country}` },
+        }}
+      />
+    ) : null
+  );
+
+  const lineChart = (
+    dailyData[0] ? (
+      <Line
+        data={{
+          labels: dailyData.map(({ date }) => new Date(date).toLocaleDateString()),
+          datasets: [{
+            data: dailyData.map((data) => data.confirmed),
+            label: 'Infected',
+            borderColor: '#3333ff',
+            fill: true,
+          }, {
+            data: dailyData.map((data) => data.deaths),
+            label: 'Deaths',
+            borderColor: 'red',
+            backgroundColor: 'rgba(255, 0, 0, 0.5)',
+            fill: true,
+          },  {
+            data: dailyData.map((data) => data.recovered),
+            label: 'Recovered',
+            borderColor: 'green',
+            backgroundColor: 'rgba(0, 255, 0, 0.5)',
+            fill: true,
+          },
+          ],
+        }}
+      />
+    ) : null
+  );
+
+  return (
+    <div className='container-chart'>
+     
+      {country ? barChart : lineChart}
+      <br/><br/><br/><br/>
+    </div>
+  );
+};
+

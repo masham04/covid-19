@@ -1,24 +1,45 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import './App.css';
 import {Header} from './Components/Header'
 import {About} from './Components/About'
 import { Symptoms } from './Components/Symptoms';
 import {Prevent} from './Components/Prevent'
-// import {Navbar} from './Components/Navbar';
-// import Boxes from './Components/Boxes';
-// import Chart from './Components/Chart';
-// import {Countrydata} from './Components/Countrydata';
+import {Cards} from './Components/cards/Cards'
+import {Countrypicker} from './Components/Countrypicker'
+import {Chart} from './Components/Chart'
+import { fetchData } from './api/';
+import {Maps} from './Components/Maps'
+import { Footer } from './Components/Footer';
 function App() {
+  const [Data, setData] = useState({});
+  const [Country, setCountry] = useState('');
+
+  useEffect( () => {
+    async function getdata(){
+      const data = await fetchData();
+      setData(data);
+    }
+    getdata()
+    
+  }, [])
+  
+
+  const handleCountryChange = async (country) => {
+    const data = await fetchData(country);
+    setCountry(country)
+    setData(data);
+  }
   return (
     <div>
     <Header/>
     <About />
     <Symptoms/>
     <Prevent/>
-      {/* <Navbar />
-      <Boxes />
-      <Chart />
-      <Countrydata /> */}
+    <Cards data={Data} />
+    <Countrypicker handleCountryChange={handleCountryChange} />
+    <Chart data={Data} country={Country} /> 
+     <Maps />
+     <Footer/>
     </div>
   );
 }
